@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Mobile.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Lab05&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">lab05</a> &gt; <span class="el_source">Mobile.java</span></div><h1>Mobile.java</h1><pre class="source lang-java linenums">
+package lab05;
+
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.Period;
+
+/**
+ *
+ * @author Ravneet Bhullar
+ */
+public class Mobile {
+    /*
+    * declare the variables for mobile
+    */
+    private String brand, model, color;
+    private  double price;
+    private LocalDate launchDate;
+    /*
+    * declare the constructor for mobile
+    */
+
+<span class="fc" id="L23">    public Mobile(String brand, String model, String color, double price, LocalDate launchDate) {</span>
+<span class="fc" id="L24">        setBrand(brand);</span>
+<span class="fc" id="L25">        setModel(model);</span>
+<span class="fc" id="L26">        setColor(color);</span>
+<span class="fc" id="L27">        setPrice(price);</span>
+<span class="fc" id="L28">        setLaunchDate(launchDate);</span>
+<span class="fc" id="L29">    }</span>
+     /*
+    * Get method for Brand and
+    * return the value
+    */
+
+    public String getBrand() {
+<span class="fc" id="L36">        return brand; </span>
+        
+    }
+    /*
+    * this method validates that theBrand of the phone should have some value 
+    */
+  public void setBrand(String brand) {
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        if (!brand.isEmpty())</span>
+<span class="fc" id="L44">            this.brand = brand;</span>
+        else
+<span class="fc" id="L46">            throw new IllegalArgumentException(&quot;Brand cannot be empty&quot;);</span>
+ 
+<span class="fc" id="L48">    }</span>
+     /*
+    * Get method for Model and
+    * return the value
+    */
+  
+    public String getModel() {
+<span class="fc" id="L55">        return model;</span>
+    }
+    /*
+    *this validates that the Model of the phone is should not empty
+    */
+
+    public void setModel(String model) {
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        if (!model.isEmpty())</span>
+<span class="fc" id="L63">            this.model = model;</span>
+        else
+<span class="fc" id="L65">            throw new IllegalArgumentException(&quot;Model cannot be empty&quot;);</span>
+ 
+<span class="fc" id="L67">    }</span>
+    /* 
+    * Get method for Color and
+    * return the value
+    */
+    
+    public String getColor() {
+<span class="fc" id="L74">        return color;</span>
+    }
+    /*
+    *this validates that the Color of the phone have some value
+    */
+
+    public void setColor(String color) {
+<span class="fc bfc" id="L81" title="All 2 branches covered.">        if (!color.isEmpty())</span>
+<span class="fc" id="L82">            this.color = color;</span>
+        else
+<span class="fc" id="L84">            throw new IllegalArgumentException(&quot;Color cannot be empty&quot;);</span>
+ 
+<span class="fc" id="L86">    }</span>
+     /*
+    * Get method for Price and
+    * return the value
+    */
+
+    public double getPrice() {
+<span class="fc" id="L93">        return price;</span>
+    }
+    
+    /*
+    *this validates that the Price of the phone is less than the 0 
+    */
+
+    public void setPrice(double price) {
+<span class="fc bfc" id="L101" title="All 2 branches covered.">         if (price &gt; 0)</span>
+<span class="fc" id="L102">            this.price = price;</span>
+        else
+<span class="fc" id="L104">            throw new IllegalArgumentException(&quot;Price must be greater than 0&quot;); </span>
+<span class="fc" id="L105">    }</span>
+    /*
+    * Get method for launchDate and
+    * return the value
+    */
+
+    public LocalDate getLaunchDate() {
+<span class="fc" id="L112">        return launchDate;</span>
+    }
+    
+
+    /**
+     * this validates that the launch date of the phone is between Jan 1, 2000 and 
+     * the present date
+     * @param launchDate 
+     */
+    public void setLaunchDate(LocalDate launchDate) {
+
+<span class="fc bfc" id="L123" title="All 2 branches covered.">       if (launchDate.isAfter(LocalDate.of(2000, Month.JANUARY, 1)) &amp;&amp;</span>
+<span class="pc bpc" id="L124" title="1 of 2 branches missed.">            launchDate.isBefore(LocalDate.now()))</span>
+<span class="fc" id="L125">            this.launchDate = launchDate;</span>
+   else
+<span class="fc" id="L127">     throw new IllegalArgumentException(&quot;launch date should be greater than 2000 &quot;);</span>
+<span class="fc" id="L128">    }</span>
+
+    
+      
+    }
+    
+
+  
+    
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
