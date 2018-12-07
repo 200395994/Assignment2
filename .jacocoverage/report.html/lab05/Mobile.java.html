@@ -149,25 +149,25 @@ public class Mobile {
     
     /**
     * this validates that the Payment Method of the phone must not be empty 
+     * @param paymentMethod
     */
 
     public void setPaymentMethod(String paymentMethod) {
         
-<span class="fc bfc" id="L156" title="All 2 branches covered.">        if (!paymentMethod.isEmpty())</span>
-<span class="fc" id="L157">          this.paymentMethod = paymentMethod;</span>
+<span class="fc bfc" id="L157" title="All 2 branches covered.">        if (!paymentMethod.isEmpty())</span>
+<span class="fc" id="L158">          this.paymentMethod = paymentMethod;</span>
         else
-<span class="fc" id="L159">            throw new IllegalArgumentException(&quot;Payment Method cannot be empty&quot;);</span>
+<span class="fc" id="L160">            throw new IllegalArgumentException(&quot;Payment Method cannot be empty&quot;);</span>
 
-<span class="fc" id="L161">    }</span>
+<span class="fc" id="L162">    }</span>
     
     /**
      * Insert the toString method for variables
      * @return 
      */
-
     @Override
     public String toString() {
-<span class="nc" id="L170">        return &quot;Mobile{&quot; + &quot;brand=&quot; + brand + &quot;, model=&quot; + model +  &quot;, paymentMethod=&quot; + paymentMethod + &quot;, capacity=&quot; + capacity +&quot;, price=&quot; + price + &quot;, launchDate=&quot; + launchDate + '}';</span>
+<span class="fc" id="L170">        return &quot;Mobile{&quot; + &quot;brand=&quot; + brand + &quot;, model=&quot; + model +  &quot;, paymentMethod=&quot; + paymentMethod + &quot;, capacity=&quot; + capacity +&quot;, price=&quot; + price + &quot;, launchDate=&quot; + launchDate + '}';</span>
     }
     
 
