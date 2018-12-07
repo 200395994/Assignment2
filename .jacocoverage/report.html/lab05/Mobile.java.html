@@ -3,113 +3,124 @@ package lab05;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.time.Period;
 
 /**
  *
  * @author Ravneet Bhullar
  */
 public class Mobile {
-    /*
-    * declare the variables for mobile
+    /**
+    * declare the variables for mobile such as brand, model,  capacity
+    * paymentMethod price and launchDate
     */
-    private String brand, model, color;
+    private String brand, model,  capacity, paymentMethod;
     private  double price;
     private LocalDate launchDate;
-    /*
-    * declare the constructor for mobile
+    /**
+     * Here declare the constructors for mobile
+     * @param brand
+     * @param model
+     * @param price
+     * @param capacity
+     * @param launchDate
+     * @param paymentMethod
     */
 
-<span class="fc" id="L23">    public Mobile(String brand, String model, String color, double price, LocalDate launchDate) {</span>
-<span class="fc" id="L24">        setBrand(brand);</span>
-<span class="fc" id="L25">        setModel(model);</span>
-<span class="fc" id="L26">        setColor(color);</span>
-<span class="fc" id="L27">        setPrice(price);</span>
-<span class="fc" id="L28">        setLaunchDate(launchDate);</span>
-<span class="fc" id="L29">    }</span>
-     /*
+<span class="fc" id="L29">    public Mobile(String brand, String model, double price,String paymentMethod, LocalDate launchDate,String capacity) {</span>
+<span class="fc" id="L30">        setBrand(brand);</span>
+<span class="fc" id="L31">        setModel(model);</span>
+<span class="fc" id="L32">        setPrice(price);</span>
+<span class="fc" id="L33">        setCapacity(capacity);</span>
+<span class="fc" id="L34">        setLaunchDate(launchDate);</span>
+<span class="fc" id="L35">        setPaymentMethod(paymentMethod);</span>
+<span class="fc" id="L36">    }</span>
+    /**
     * Get method for Brand and
     * return the value
+    * @return 
     */
 
-    public String getBrand() {
-<span class="fc" id="L36">        return brand; </span>
+       public String getBrand() {
+<span class="fc" id="L44">        return brand; </span>
         
     }
-    /*
-    * this method validates that theBrand of the phone should have some value 
+    /**
+    * this method validates that the Brand of the phone should have some value 
     */
   public void setBrand(String brand) {
-<span class="fc bfc" id="L43" title="All 2 branches covered.">        if (!brand.isEmpty())</span>
-<span class="fc" id="L44">            this.brand = brand;</span>
+<span class="fc" id="L51">      System.out.printf(&quot;setBrand of Mobile: Brand '%s'%n&quot;,brand );</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">        if (brand.matches(&quot;[A-Z][a-z]*&quot;))</span>
+<span class="fc" id="L53">            this.brand = brand;</span>
         else
-<span class="fc" id="L46">            throw new IllegalArgumentException(&quot;Brand cannot be empty&quot;);</span>
+<span class="fc" id="L55">            throw new IllegalArgumentException(&quot;First letter of brand should be in capital letter and it should have any value&quot;);</span>
  
-<span class="fc" id="L48">    }</span>
-     /*
+<span class="fc" id="L57">    }</span>
+    /**
     * Get method for Model and
     * return the value
+     * @return 
     */
-  
     public String getModel() {
-<span class="fc" id="L55">        return model;</span>
+<span class="fc" id="L64">        return model;</span>
     }
-    /*
-    *this validates that the Model of the phone is should not empty
+    /**
+    * this validates that the Model of the phone 
+    * is should not empty
     */
 
     public void setModel(String model) {
-<span class="fc bfc" id="L62" title="All 2 branches covered.">        if (!model.isEmpty())</span>
-<span class="fc" id="L63">            this.model = model;</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">        if (!model.isEmpty())</span>
+<span class="fc" id="L73">            this.model = model;</span>
         else
-<span class="fc" id="L65">            throw new IllegalArgumentException(&quot;Model cannot be empty&quot;);</span>
+<span class="fc" id="L75">            throw new IllegalArgumentException(&quot;Model cannot be empty&quot;);</span>
  
-<span class="fc" id="L67">    }</span>
-    /* 
-    * Get method for Color and
-    * return the value
-    */
-    
-    public String getColor() {
-<span class="fc" id="L74">        return color;</span>
-    }
-    /*
-    *this validates that the Color of the phone have some value
-    */
-
-    public void setColor(String color) {
-<span class="fc bfc" id="L81" title="All 2 branches covered.">        if (!color.isEmpty())</span>
-<span class="fc" id="L82">            this.color = color;</span>
-        else
-<span class="fc" id="L84">            throw new IllegalArgumentException(&quot;Color cannot be empty&quot;);</span>
- 
-<span class="fc" id="L86">    }</span>
-     /*
+<span class="fc" id="L77">    }</span>
+  
+    /**
     * Get method for Price and
     * return the value
     */
 
     public double getPrice() {
-<span class="fc" id="L93">        return price;</span>
+<span class="fc" id="L85">        return price;</span>
     }
     
     /*
-    *this validates that the Price of the phone is less than the 0 
+    * this validates that the Price of the phone is less than the 0 
     */
 
     public void setPrice(double price) {
-<span class="fc bfc" id="L101" title="All 2 branches covered.">         if (price &gt; 0)</span>
-<span class="fc" id="L102">            this.price = price;</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">         if (price &gt; 0)</span>
+<span class="fc" id="L94">            this.price = price;</span>
         else
-<span class="fc" id="L104">            throw new IllegalArgumentException(&quot;Price must be greater than 0&quot;); </span>
-<span class="fc" id="L105">    }</span>
-    /*
+<span class="fc" id="L96">            throw new IllegalArgumentException(&quot;Price must be greater than 0&quot;); </span>
+<span class="fc" id="L97">    }</span>
+    /**
+    * Get method for Capacity and
+    * return the value
+    */
+    public String getCapacity() {
+<span class="fc" id="L103">        return capacity;</span>
+    }
+    
+    /**
+    * this validates that the Capacity of the phone must not be empty 
+    */
+
+    public void setCapacity(String capacity) {
+<span class="fc bfc" id="L111" title="All 2 branches covered.">         if (!capacity.isEmpty())</span>
+<span class="fc" id="L112">            this.capacity = capacity;</span>
+        else
+<span class="fc" id="L114">            throw new IllegalArgumentException(&quot;Capacity cannot be empty&quot;);</span>
+  
+<span class="fc" id="L116">    }</span>
+    /**
     * Get method for launchDate and
     * return the value
     */
 
     public LocalDate getLaunchDate() {
-<span class="fc" id="L112">        return launchDate;</span>
+<span class="fc" id="L123">        return launchDate;</span>
     }
     
 
@@ -120,13 +131,47 @@ public class Mobile {
      */
     public void setLaunchDate(LocalDate launchDate) {
 
-<span class="fc bfc" id="L123" title="All 2 branches covered.">       if (launchDate.isAfter(LocalDate.of(2000, Month.JANUARY, 1)) &amp;&amp;</span>
-<span class="pc bpc" id="L124" title="1 of 2 branches missed.">            launchDate.isBefore(LocalDate.now()))</span>
-<span class="fc" id="L125">            this.launchDate = launchDate;</span>
+<span class="fc bfc" id="L134" title="All 2 branches covered.">       if (launchDate.isAfter(LocalDate.of(2000, Month.JANUARY, 1)) &amp;&amp;</span>
+<span class="pc bpc" id="L135" title="1 of 2 branches missed.">            launchDate.isBefore(LocalDate.now()))</span>
+<span class="fc" id="L136">            this.launchDate = launchDate;</span>
    else
-<span class="fc" id="L127">     throw new IllegalArgumentException(&quot;launch date should be greater than 2000 &quot;);</span>
-<span class="fc" id="L128">    }</span>
+<span class="fc" id="L138">     throw new IllegalArgumentException(&quot;launch date should be greater than 2000 &quot;);</span>
+<span class="fc" id="L139">    }</span>
+    
+    /**
+    * Get method for Payment Method and
+    * return the value
+    */
 
+    public String getPaymentMethod() {
+<span class="fc" id="L147">        return paymentMethod;</span>
+    }
+    
+    /**
+    * this validates that the Payment Method of the phone must not be empty 
+    */
+
+    public void setPaymentMethod(String paymentMethod) {
+        
+<span class="fc bfc" id="L156" title="All 2 branches covered.">        if (!paymentMethod.isEmpty())</span>
+<span class="fc" id="L157">          this.paymentMethod = paymentMethod;</span>
+        else
+<span class="fc" id="L159">            throw new IllegalArgumentException(&quot;Payment Method cannot be empty&quot;);</span>
+
+<span class="fc" id="L161">    }</span>
+    
+    /**
+     * Insert the toString method for variables
+     * @return 
+     */
+
+    @Override
+    public String toString() {
+<span class="nc" id="L170">        return &quot;Mobile{&quot; + &quot;brand=&quot; + brand + &quot;, model=&quot; + model +  &quot;, paymentMethod=&quot; + paymentMethod + &quot;, capacity=&quot; + capacity +&quot;, price=&quot; + price + &quot;, launchDate=&quot; + launchDate + '}';</span>
+    }
+    
+
+    
     
       
     }

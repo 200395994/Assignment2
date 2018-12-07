@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>CreateMobileFXMLController.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Lab05&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">lab05</a> &gt; <span class="el_source">CreateMobileFXMLController.java</span></div><h1>CreateMobileFXMLController.java</h1><pre class="source lang-java linenums">
+package lab05;
+
+import java.net.URL;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+
+<span class="nc" id="L21">public class CreateMobileFXMLController implements Initializable {</span>
+// Insert TextField for Brand, Model and Price
+    @FXML
+    private TextField brandTextField;
+
+    @FXML
+    private TextField ModelTextField;
+
+    @FXML
+    private TextField priceTextField;
+
+//  @FXML   private ColorPicker mobileColorPicker;
+  
+//Below items the RadioButton for capacity  
+    @FXML
+    private RadioButton GB16radioButton;
+
+    @FXML
+    private RadioButton GB32radioButton;
+
+    @FXML
+    private RadioButton GB64radioButton;
+
+    @FXML
+    private RadioButton GB128radioButton;
+
+    @FXML
+    private RadioButton GB256radioButton;
+
+    // Insert label for RadioButton
+    @FXML
+    private Label radioButtonLabel;
+
+    // Insert DatePicker and Label for launchDate
+    @FXML
+    private DatePicker launchDatePicker;
+    
+     @FXML private Label datePickerLabel;
+    
+    // Insert ChoiceBox for PaymentMethod, Label and PaymentMethod
+
+    @FXML
+    private ChoiceBox&lt;String&gt; paymentChoiceBox;
+    
+    @FXML
+    private Label ChoiceBoxLabel;
+
+    @FXML
+    private Button insertPaymentButton;
+        
+   
+    @FXML private ToggleGroup CapacityToggleGroup;
+
+ @FXML
+    private Label errorMsgLabel;
+ 
+ @FXML
+    private ImageView launchImageView;
+
+
+  
+    /**
+     * Initializes the controller class.
+     * @param url
+     * @param rb
+     */
+    @Override
+     public void initialize(URL url, ResourceBundle rb) {
+        // These items for checkbox labels
+<span class="nc" id="L90">       ChoiceBoxLabel.setText(&quot;&quot;);</span>
+<span class="nc" id="L91">       paymentChoiceBox.getItems().add(&quot;DebitCard&quot;);</span>
+<span class="nc" id="L92">       paymentChoiceBox.getItems().add(&quot;CreditCard&quot;);</span>
+<span class="nc" id="L93">       paymentChoiceBox.getItems().add(&quot;Cash&quot;);</span>
+<span class="nc" id="L94">       paymentChoiceBox.getItems().add(&quot;DirectDeposit&quot;);</span>
+<span class="nc" id="L95">       paymentChoiceBox.getItems().add(&quot;BankTransfer&quot;);  </span>
+<span class="nc" id="L96">       paymentChoiceBox.setValue(&quot;Select Method&quot;);</span>
+       
+<span class="nc" id="L98">        CapacityToggleGroup = new ToggleGroup();</span>
+<span class="nc" id="L99">        radioButtonLabel.setText(&quot;&quot;);</span>
+<span class="nc" id="L100">        this.GB16radioButton.setToggleGroup(CapacityToggleGroup);</span>
+<span class="nc" id="L101">        this.GB32radioButton.setToggleGroup(CapacityToggleGroup);</span>
+<span class="nc" id="L102">        this.GB64radioButton.setToggleGroup(CapacityToggleGroup);</span>
+<span class="nc" id="L103">        this.GB128radioButton.setToggleGroup(CapacityToggleGroup);</span>
+<span class="nc" id="L104">        this.GB256radioButton.setToggleGroup(CapacityToggleGroup);</span>
+
+<span class="nc" id="L106">     }</span>
+    public void choiceBoxButtonPushed(){
+<span class="nc" id="L108">     ChoiceBoxLabel.setText(&quot;You choose PaymentOption:\n&quot; +paymentChoiceBox.getValue().toString());  </span>
+<span class="nc" id="L109">   }</span>
+    /**
+     * Below Items for LaunchDatePicker
+     */
+    public void datePickerPushed(){
+       String dateText;
+<span class="nc bnc" id="L115" title="All 2 branches missed.">       if(launchDatePicker.getValue() != null)</span>
+       {
+<span class="nc" id="L117">       int year = Period.between(launchDatePicker.getValue(), LocalDate.now()).getYears();</span>
+<span class="nc" id="L118">       int month = Period.between(launchDatePicker.getValue(), LocalDate.now()).getMonths();</span>
+<span class="nc" id="L119">       int day = Period.between(launchDatePicker.getValue(), LocalDate.now()).getDays();</span>
+      
+<span class="nc bnc" id="L121" title="All 2 branches missed.">       if (year == 0)</span>
+       {
+<span class="nc" id="L123">        dateText = String.format(&quot;%d months , %d days&quot;, month, day);</span>
+       }
+<span class="nc bnc" id="L125" title="All 6 branches missed.">       else if(year &lt; 0 || month &lt; 0 || day &lt; 0)</span>
+<span class="nc" id="L126">           dateText = &quot;Mobile is not launch till&quot;;</span>
+       else 
+<span class="nc" id="L128">           dateText = String.format(&quot;%d Launch year&quot;, year);</span>
+<span class="nc" id="L129">       this.datePickerLabel.setText(dateText);</span>
+       
+    }
+    
+<span class="nc" id="L133">    }  </span>
+  /**
+  * these items for set RadioButtons for mobile  
+  * insert different value which are given to radioButtons
+  */
+   
+   public void radioButtonChanged()
+    {
+<span class="nc" id="L141">        radioButtonLabel.setText(&quot;You choose capacity:\n&quot; +radioButtonLabel.getText().toString());</span>
+<span class="nc bnc" id="L142" title="All 2 branches missed.">        if (this.CapacityToggleGroup.getSelectedToggle().equals(this.GB16radioButton))</span>
+<span class="nc" id="L143">            radioButtonLabel.setText(&quot;Phone have 16GB Capacity &quot;);</span>
+        
+<span class="nc bnc" id="L145" title="All 2 branches missed.">        if (this.CapacityToggleGroup.getSelectedToggle().equals(this.GB32radioButton))</span>
+<span class="nc" id="L146">            radioButtonLabel.setText(&quot;Phone have 32GB Capacity&quot;);</span>
+        
+<span class="nc bnc" id="L148" title="All 2 branches missed.">        if (this.CapacityToggleGroup.getSelectedToggle().equals(this.GB64radioButton))</span>
+<span class="nc" id="L149">            radioButtonLabel.setText(&quot;Phone have 64GB Capacity&quot;);</span>
+        
+<span class="nc bnc" id="L151" title="All 2 branches missed.">        if (this.CapacityToggleGroup.getSelectedToggle().equals(this.GB128radioButton))</span>
+<span class="nc" id="L152">            radioButtonLabel.setText(&quot;Phone have 128GB Capacity&quot;);</span>
+        
+<span class="nc bnc" id="L154" title="All 2 branches missed.">         if (this.CapacityToggleGroup.getSelectedToggle().equals(this.GB256radioButton))</span>
+<span class="nc" id="L155">            radioButtonLabel.setText(&quot;Phone have 256GB Capacity&quot;);</span>
+
+<span class="nc" id="L157">    }</span>
+   
+   @FXML
+    public void PaymentImageChanger()
+    {
+<span class="nc" id="L162">       String Payment = paymentChoiceBox.getValue();</span>
+<span class="nc bnc" id="L163" title="All 2 branches missed.">        if (Payment.equalsIgnoreCase(&quot;DebitCard&quot;))</span>
+<span class="nc" id="L164">            launchImageView.setImage(new Image(&quot;./Images/debit.png&quot;));</span>
+<span class="nc bnc" id="L165" title="All 2 branches missed.">        else if (Payment.equalsIgnoreCase(&quot;CreditCard&quot;))</span>
+<span class="nc" id="L166">            launchImageView.setImage(new Image(&quot;./Images/credit.jpg&quot;));</span>
+<span class="nc bnc" id="L167" title="All 2 branches missed.">         else if (Payment.equalsIgnoreCase(&quot;Cash&quot;))</span>
+<span class="nc" id="L168">            launchImageView.setImage(new Image(&quot;./Images/cash.png&quot;));</span>
+<span class="nc bnc" id="L169" title="All 2 branches missed.">          else if (Payment.equalsIgnoreCase(&quot;DirectDeposit&quot;))</span>
+<span class="nc" id="L170">            launchImageView.setImage(new Image(&quot;./Images/direct.jpg&quot;));</span>
+        else
+<span class="nc" id="L172">           launchImageView.setImage(new Image(&quot;./Images/bank.png&quot;));</span>
+       
+       
+<span class="nc" id="L175">    }</span>
+ 
+   /**
+    * this will insert the label for the radioButton
+    */
+
+  
+    @FXML
+    public void LaunchMobileButtonPushed()
+    {
+<span class="nc bnc" id="L185" title="All 2 branches missed.">        if (this.launchDatePicker.getValue() != null)</span>
+        {
+            try{
+<span class="nc" id="L188">                System.out.printf(&quot;Get Mobile: Brand '%s'%n&quot;,brandTextField.getText() );</span>
+                
+<span class="nc" id="L190">                Mobile newMobile = new Mobile(</span>
+<span class="nc" id="L191">                                        this.brandTextField.getText(),</span>
+<span class="nc" id="L192">                                        this.ModelTextField.getText(),</span>
+<span class="nc" id="L193">                                        Integer.parseInt(priceTextField.getText()),</span>
+<span class="nc" id="L194">                                        this.paymentChoiceBox.getValue(),</span>
+<span class="nc" id="L195">                                        this.launchDatePicker.getValue(),</span>
+                                       
+<span class="nc" id="L197">                           ((RadioButton) CapacityToggleGroup.getSelectedToggle()).getText());</span>
+           
+<span class="nc" id="L199">                System.out.println(newMobile);</span>
+<span class="nc" id="L200">            } catch (IllegalArgumentException e)</span>
+            {
+<span class="nc" id="L202">                errorMsgLabel.setText(e.getMessage());</span>
+<span class="nc" id="L203">            }</span>
+        }
+        else
+        {
+<span class="nc" id="L207">            errorMsgLabel.setText(&quot;Please Provide your correct Info.&quot;);</span>
+        }
+   
+<span class="nc" id="L210">}</span>
+}
+    
+    
+            
+    
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

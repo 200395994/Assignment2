@@ -3,59 +3,69 @@ package lab05;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.time.Period;
 
 /**
  *
  * @author Ravneet Bhullar
  */
 public class Mobile {
-    /*
-    * declare the variables for mobile
+    /**
+    * declare the variables for mobile such as brand, model,  capacity
+    * paymentMethod price and launchDate
     */
-    private String brand, model, color;
+    private String brand, model,  capacity, paymentMethod;
     private  double price;
     private LocalDate launchDate;
-    /*
-    * declare the constructor for mobile
+    /**
+     * Here declare the constructors for mobile
+     * @param brand
+     * @param model
+     * @param price
+     * @param capacity
+     * @param launchDate
+     * @param paymentMethod
     */
 
-    public Mobile(String brand, String model, String color, double price, LocalDate launchDate) {
+    public Mobile(String brand, String model, double price,String paymentMethod, LocalDate launchDate,String capacity) {
         setBrand(brand);
         setModel(model);
-        setColor(color);
         setPrice(price);
+        setCapacity(capacity);
         setLaunchDate(launchDate);
+        setPaymentMethod(paymentMethod);
     }
-     /*
+    /**
     * Get method for Brand and
     * return the value
+    * @return 
     */
 
-    public String getBrand() {
+       public String getBrand() {
         return brand; 
         
     }
-    /*
-    * this method validates that theBrand of the phone should have some value 
+    /**
+    * this method validates that the Brand of the phone should have some value 
     */
   public void setBrand(String brand) {
-        if (!brand.isEmpty())
+      System.out.printf("setBrand of Mobile: Brand '%s'%n",brand );
+        if (brand.matches("[A-Z][a-z]*"))
             this.brand = brand;
         else
-            throw new IllegalArgumentException("Brand cannot be empty");
+            throw new IllegalArgumentException("First letter of brand should be in capital letter and it should have any value");
  
     }
-     /*
+    /**
     * Get method for Model and
     * return the value
+     * @return 
     */
-  
     public String getModel() {
         return model;
     }
-    /*
-    *this validates that the Model of the phone is should not empty
+    /**
+    * this validates that the Model of the phone 
+    * is should not empty
     */
 
     public void setModel(String model) {
@@ -65,26 +75,8 @@ public class Mobile {
             throw new IllegalArgumentException("Model cannot be empty");
  
     }
-    /* 
-    * Get method for Color and
-    * return the value
-    */
-    
-    public String getColor() {
-        return color;
-    }
-    /*
-    *this validates that the Color of the phone have some value
-    */
-
-    public void setColor(String color) {
-        if (!color.isEmpty())
-            this.color = color;
-        else
-            throw new IllegalArgumentException("Color cannot be empty");
- 
-    }
-     /*
+  
+    /**
     * Get method for Price and
     * return the value
     */
@@ -94,7 +86,7 @@ public class Mobile {
     }
     
     /*
-    *this validates that the Price of the phone is less than the 0 
+    * this validates that the Price of the phone is less than the 0 
     */
 
     public void setPrice(double price) {
@@ -103,7 +95,26 @@ public class Mobile {
         else
             throw new IllegalArgumentException("Price must be greater than 0"); 
     }
-    /*
+    /**
+    * Get method for Capacity and
+    * return the value
+    */
+    public String getCapacity() {
+        return capacity;
+    }
+    
+    /**
+    * this validates that the Capacity of the phone must not be empty 
+    */
+
+    public void setCapacity(String capacity) {
+         if (!capacity.isEmpty())
+            this.capacity = capacity;
+        else
+            throw new IllegalArgumentException("Capacity cannot be empty");
+  
+    }
+    /**
     * Get method for launchDate and
     * return the value
     */
@@ -126,7 +137,40 @@ public class Mobile {
    else
      throw new IllegalArgumentException("launch date should be greater than 2000 ");
     }
+    
+    /**
+    * Get method for Payment Method and
+    * return the value
+    */
 
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+    
+    /**
+    * this validates that the Payment Method of the phone must not be empty 
+    */
+
+    public void setPaymentMethod(String paymentMethod) {
+        
+        if (!paymentMethod.isEmpty())
+          this.paymentMethod = paymentMethod;
+        else
+            throw new IllegalArgumentException("Payment Method cannot be empty");
+
+    }
+    
+    /**
+     * Insert the toString method for variables
+     * @return 
+     */
+    @Override
+    public String toString() {
+        return "Mobile{" + "brand=" + brand + ", model=" + model +  ", paymentMethod=" + paymentMethod + ", capacity=" + capacity +", price=" + price + ", launchDate=" + launchDate + '}';
+    }
+    
+
+    
     
       
     }

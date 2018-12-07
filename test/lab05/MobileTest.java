@@ -29,7 +29,7 @@ public class MobileTest {
     
     @Before
     public void setUp() {
-        validMobile = new Mobile("Apple","Apple 8+","Black",85000.00 ,LocalDate.of(2016, Month.MARCH, 10));
+        validMobile = new Mobile("Apple","Apple 8+",85000.00 ,"Debit Card",LocalDate.of(2016, Month.MARCH, 10), "64GB");
     }
     
     @After
@@ -44,16 +44,32 @@ public class MobileTest {
         String result = validMobile.getBrand();
         assertEquals(expResult, result);
     }
-
     
+    
+        /**
+     * Test of toString method, of class Circle.
+     */
+    @Test
+    public void testToString() {
+        System.out.println("toString");
+       
+        String expResult = "Mobile{}";
+        String result = validMobile.toString();
+        assertEquals(expResult, result);
+    }
+    /**
+     * Test of setBrand method, of class Mobile.
+     */
+
     @Test
     public void testSetBrand()
     {
-         validMobile.setBrand("awsome mobile");
-        assertEquals("awsome mobile", validMobile.getBrand());
+         validMobile.setBrand("Mobile");
+         String result = validMobile.getBrand();
+        assertEquals("Mobile",result);
     }
      /**
-     * Test of setBrand method of class Mobile.
+     * Test of setBrand with Invalid method of class Mobile.
      */
     
    @Test
@@ -61,7 +77,7 @@ public class MobileTest {
     {
         try{
             validMobile.setBrand("");
-            fail("An empty String model should have triggered an exception");
+            fail("An empty String Brand should have triggered an exception");
         }
         catch (IllegalArgumentException e)
         {
@@ -90,7 +106,7 @@ public class MobileTest {
         assertEquals("awsome model", validMobile.getModel());
     }
     /**
-     * Test of setModelInvalid method of class Mobile.
+     * Test of setModel method of class Mobile with an Invalid input.
      */
     
     @Test
@@ -105,43 +121,9 @@ public class MobileTest {
             System.err.println("Empty string for model: "+ e.getMessage());
         }
     }
-    /**
-     * Test of GetColor method of class Mobile.
-     */
-    public void testGetColor()
-    {
-        
-        String expResult = "Black";
-        String result = validMobile.getColor();
-        assertEquals(expResult, result);
-    }
-    /**
-     * Test of setColor method, of class Mobile.
-     */
-    @Test
-    public void testSetColor()
-    {
-        validMobile.setColor("awsome color");
-        assertEquals("awsome color", validMobile.getColor());
-    }
-    /**
-     * Test of setColorInvalid method, of class Mobile.
-     */
     
-    @Test
-    public void testSetColorInValid()
-    {
-        try{
-            validMobile.setColor("");
-            fail("An empty Color should have triggered an exception");
-        }
-        catch (IllegalArgumentException e)
-        {
-            System.err.println("Empty string for color: "+ e.getMessage());
-        }
-    }
     /**
-     * Test of getColor method, of class Mobile.
+     * Test of getPrice method, of class Mobile.
      */
     @Test
     public void getPrice()
@@ -167,6 +149,44 @@ public class MobileTest {
             System.out.println(e);
         }
     }
+    
+    /**
+     * Test of getPayment method, of class Mobile.
+     */
+    @Test
+    public void testGetPaymentMethod()
+    {
+        String expResult = "Debit Card";
+        String result = validMobile.getPaymentMethod();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setPaymentMethod, of class Mobile.
+     */
+    @Test
+    public void testSetPaymentMethod()
+    {
+        validMobile.setPaymentMethod("Debit Card");
+        assertEquals("Debit Card", validMobile.getPaymentMethod());
+    }
+    
+    /**
+     * Test of setMethod method, of class Mobile with an invalid input.
+     */
+    @Test
+    public void testSetPaymentMethodInvalid()
+    {
+        try{
+            validMobile.setPaymentMethod("");
+            fail("setPayment method with an empty argument should have triggered an exception");
+        }
+        catch (IllegalArgumentException e)
+        {
+            System.out.println(e);
+        }
+    }
+
      /**
      * Test of getLaunchDate method, of class Mobile.
      */
@@ -177,7 +197,7 @@ public class MobileTest {
         assertEquals(expResult, result);
     }
        /**
-     * Test of setLaunchDate method, of class Instructor.
+     * Test of setLaunchDate method, of class Mobile.
      */
     @Test
     public void testSetLaunchDate()
@@ -199,26 +219,64 @@ public class MobileTest {
             fail("A LaunchDate less than 2000 and shows exception");
         } catch (IllegalArgumentException e)
         {
-            System.out.println(e.getMessage());
+            System.out.println(e);
         }
     }
     public void testSetLaunchDateInvalidFuture()
     {
-        LocalDate launchDate = LocalDate.of(2020, Month.MARCH, 10) ;
+        LocalDate launchDate = LocalDate.of(2019, Month.MARCH, 10) ;
          try{
             validMobile.setLaunchDate(launchDate);
-//            fail("A LaunchDate greater than 2000 and shows exception");
+            fail("A LaunchDate greater than 2000 and shows exception");
         }
         catch (IllegalArgumentException e)
         {
-           System.out.println(e.getMessage());
+            System.err.println("launch date for mobile: "+ e.getMessage());
         }
     }
+     
+    /**
+     * Test of getCapacity method, of class Mobile.
+     */
+    @Test
+    public void testGetCapacity()
+    {
+        String expResult = "64GB";
+        String result = validMobile.getCapacity();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setCapacity method, of class Mobile.
+     */
+    @Test
+    public void testSetCapacity()
+    {
+        System.out.print("testSetCapacity");
+        validMobile.setCapacity("64GB");
+        assertEquals("64GB", validMobile.getCapacity());
+    }
+   
+ 
+    
+    /**
+     * Test of setCapacity method, of class Mobile with an invalid input.
+     */
+    @Test
+    public void testSetCapacityInvalid()
+    {
+        try{
+            validMobile.setCapacity("");
+            fail("setCapacity method with an empty argument should have triggered an exception");
+        }
+        catch (IllegalArgumentException e)
+        {
+            System.out.println(e);
+        }
+    }
+    
+   
 
 
     }
     
-
-   
-
-
